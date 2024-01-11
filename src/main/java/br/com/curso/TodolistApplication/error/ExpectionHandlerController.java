@@ -1,4 +1,4 @@
-package br.com.curso.TodolistApplication.erros;
+package br.com.curso.TodolistApplication.error;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
