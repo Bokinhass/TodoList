@@ -14,20 +14,27 @@ import java.util.UUID;
 @Entity(name = "tb_tasks")
 public class TaskModel {
 
-    @Id
-    @GeneratedValue(generator = "UUID")
-    private UUID id;
+  @Id
+  @GeneratedValue(generator = "UUID")
+  private UUID id;
 
-    private UUID idUser;
+  private UUID idUser;
 
-    private String description;
+  @Column(length = 50)
+  private String title;
 
-    @Column(length = 50)
-    private String title;
-    private LocalDateTime startAt;
-    private LocalDateTime endAt;
-    private String priority;
+  private String description;
+  private LocalDateTime startAt;
+  private LocalDateTime endAt;
+  private String priority;
 
-    @CreationTimestamp
-    private LocalDateTime createdAt;
+  @CreationTimestamp
+  private LocalDateTime createdAt;
+
+  public void setTitle(String title) throws Exception {
+    if (title.length() > 50) {
+      throw new Exception("Title must be has 50 characters.");
+    }
+    this.title = title;
+  }
 }
